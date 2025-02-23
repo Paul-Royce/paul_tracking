@@ -37,6 +37,9 @@
 			})(window, document, 'dataLayer', '352c1b0a-df5f-4972-9a1d-bf175be974ba');
 		</script>
 
+
+		
+
 		<!-- Start Header/Navigation -->
 		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
 
@@ -77,7 +80,7 @@
 							<div class="intro-excerpt">
 								<h1>Services</h1>
 								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
-								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#features-container" class="btn btn-white-outline">Explore</a></p>
 							</div>
 						</div>
 						<div class="col-lg-7">
@@ -94,7 +97,7 @@
 
 		<!-- Start Why Choose Us Section -->
 		<div class="why-choose-section">
-			<div class="container">
+			<div class="container" id="features-container">
 				
 				
 				<div class="row my-5">
@@ -451,10 +454,39 @@
 		</footer>
 		<!-- End Footer Section -->	
 
+		
+		<script>
+			const textArray = ["Dzien dobry!", "Witamy!", "Hello!", "Welcome!"]
+			const myColors = ["black", "white", "#329ea8", "#f8b810"]
+			const header = document.querySelector("h1")
+			
+			let counter = 0
+			header.textContent = textArray[counter]
+			header.style.transition = "2s"
+			setInterval(function(){
+				counter++
+				if(counter >= 4) counter = 0
+				header.style.scale = 1
+				header.style.color = myColors[counter]
+				header.textContent = textArray[counter]
+			}, 3000)
+
+			const exploreBtn = document.querySelector(".btn-white-outline");
+
+			exploreBtn.addEventListener("click", function() {
+				const featuresCont = document.getElementById("features-container")
+				console.log(featuresCont);
+			
+				featuresCont.setAttribute("style", "border: 2px dotted red");
+			})
+
+
+			
+		</script>
 
 		<script src="js/bootstrap.bundle.min.js"></script>
 		<script src="js/tiny-slider.js"></script>
 		<script src="js/custom.js"></script>
 	</body>
-
+servicesFeatures
 </html>
